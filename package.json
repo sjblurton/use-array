@@ -33,7 +33,11 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "use-array",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjblurton/use-array"
+  },
+  "name": "@sjblurtn/use-array",
   "author": "Simon Blurton",
   "module": "dist/use-array.esm.js",
   "size-limit": [
@@ -48,11 +52,15 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.4.1",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "husky": "^7.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-test-renderer": "^18.0.0",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
