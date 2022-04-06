@@ -4,6 +4,14 @@ useArray to work with arrays in useState and updating to the DOM.
 
 To init it defaults to an empty array, or takes an array as an input, and returns a selection of helper functions.
 
+### **install**
+
+```bash
+npm i @sjblurton/use-array
+
+yarn add @sjblurton/use-array
+```
+
 ### **To call the hook...**
 
 ```bash
@@ -35,7 +43,7 @@ filter(n => n < 4)
 add a new element to the end of the array.
 
 ```bash
-push('hello world)
+push('hello world')
 ```
 
 ### **remove**
@@ -56,7 +64,7 @@ update(2, 'fo')
 
 ## Commands
 
-to see an example of it working...
+to see an example of it working, clone from the git repo and...
 
 ```bash
 cd example

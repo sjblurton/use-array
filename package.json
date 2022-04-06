@@ -37,7 +37,7 @@
     "type": "git",
     "url": "https://github.com/sjblurton/use-array"
   },
-  "name": "@sjblurtn/use-array",
+  "name": "@sjblurton/use-array",
   "author": "Simon Blurton",
   "module": "dist/use-array.esm.js",
   "size-limit": [
