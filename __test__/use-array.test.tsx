@@ -15,9 +15,9 @@ describe('useArray testing', () => {
   it("should update position 2 in the array with 'hello'.", () => {
     const { result } = renderHook(() => useArray([1, 2, 3, 4, 5, 6]));
     act(() => {
-      result.current.update(1, 'hello');
+      result.current.update(1, 3);
     });
-    expect(result.current.array[1]).toBe('hello');
+    expect(result.current.array[1]).toBe(3);
   });
 
   it('should push an element to the array.', () => {
