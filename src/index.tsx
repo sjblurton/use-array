@@ -11,31 +11,22 @@ function useArray<T>(
   clear: () => void;
   set: (array: T[]) => void;
 } {
-  const [array, setArray] = useState(defaultValue || []);
+  const [array, setArray] = useState(defaultValue || ([] as T[]));
 
-  const push = (value: T) => {
-    setArray(a => [...a, value]);
-  };
+  const push = (value: T) => setArray(a => [...a, value]);
 
-  const filter = (callback: (arg: T) => void) => {
+  const filter = (callback: (arg: T) => void) =>
     setArray(a => a.filter(callback));
-  };
 
-  const update = (index: number, newElement: T) => {
+  const update = (index: number, newElement: T) =>
     setArray(a => [...a.slice(0, index), newElement, ...a.slice(index + 1)]);
-  };
 
-  const remove = (index: number) => {
+  const remove = (index: number) =>
     setArray(a => [...a.slice(0, index), ...a.slice(index + 1)]);
-  };
 
-  const clear = () => {
-    setArray([]);
-  };
+  const clear = () => setArray([]);
 
-  const set = (array: T[]) => {
-    setArray(array);
-  };
+  const set = (array: T[]) => setArray(array);
 
   return { array, push, filter, update, remove, clear, set };
 }
