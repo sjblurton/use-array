@@ -3,15 +3,17 @@ import * as ReactDOM from 'react-dom';
 import useArray from '../src';
 
 const App = () => {
-  const { array, set, clear, filter, push, remove, update } = useArray([
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-  ]);
+  const {
+    array,
+    set,
+    clear,
+    filter,
+    push,
+    remove,
+    update,
+    reverse,
+    sort,
+  } = useArray([1, 2, 3, 4, 5, 6, 7]);
 
   return (
     <div
@@ -32,13 +34,12 @@ const App = () => {
         <button onClick={() => remove(1)}>remove second element</button>
         <button onClick={() => filter(n => n >= 4)}>4 or higher</button>
         <button onClick={clear}>clear</button>
-        <button
-          onClick={() => {
-            set([7, 6, 5, 4, 3, 2, 1]);
-          }}
-        >
+        <button onClick={() => set([7, 6, 5, 4, 3, 2, 1])}>
           set to 7, 6, 5, 4, 3, 2, 1
         </button>
+        <button onClick={reverse}>Reverse Array</button>
+        <button onClick={() => sort((a, b) => a - b)}>sort ascending</button>
+        <button onClick={() => sort((a, b) => b - a)}>sort descending</button>
       </div>
     </div>
   );

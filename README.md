@@ -12,10 +12,16 @@ npm i @sjblurton/use-array
 yarn add @sjblurton/use-array
 ```
 
+### Import useArray
+
+```bash
+import useArray from "@sjblurton/use-array";
+```
+
 ### **To call the hook...**
 
 ```bash
-const { array, set, clear, filter, push, remove, update } = useArray([1, 2, 3, 4, 5, 6, 7,])
+const { array, set, clear, filter, push, remove, update, reverse, sort } = useArray([1, 2, 3, 4, 5, 6, 7,])
 ```
 
 ### **set**
@@ -29,6 +35,10 @@ set([4,3,2,1])
 ### **clear**
 
 clears the array to an empty array
+
+```bash
+clear()
+```
 
 ### **filter**
 
@@ -62,18 +72,30 @@ update the element in the array of the given index.
 update(2, 'fo')
 ```
 
-## Commands
+### **reverse**
 
-to see an example of it working, clone from the git repo and...
+reverses the array
 
 ```bash
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
+reverse()
 ```
 
-To run tests from the root directory...
+### **sort**
+
+sorts the array. Takes a function or undefined
 
 ```bash
-npm test # or yarn test
+sort()
+```
+
+```bash
+sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        })
 ```

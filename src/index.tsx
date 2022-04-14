@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function useArray<T>(
-  defaultValue?: T[]
+  defaultValue: T[]
 ): {
   array: T[];
   push: (value: T) => void;
@@ -10,8 +10,10 @@ function useArray<T>(
   remove: (index: number) => void;
   clear: () => void;
   set: (array: T[]) => void;
+  reverse: () => void;
+  sort: (compareFn?: ((a: T, b: T) => number) | undefined) => void;
 } {
-  const [array, setArray] = useState(defaultValue || ([] as T[]));
+  const [array, setArray] = useState(defaultValue);
 
   const push = (value: T) => setArray(a => [...a, value]);
 
@@ -28,7 +30,12 @@ function useArray<T>(
 
   const set = (array: T[]) => setArray(array);
 
-  return { array, push, filter, update, remove, clear, set };
+  const reverse = () => setArray(array => array.reverse());
+
+  const sort = (compareFn?: ((a: T, b: T) => number) | undefined) =>
+    setArray(a => a.sort(compareFn));
+
+  return { array, push, filter, update, remove, clear, set, reverse, sort };
 }
 
 export default useArray;

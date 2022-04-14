@@ -6,7 +6,7 @@ describe('useArray testing', () => {
     const initArray = [1, 2, 3, 4, 5, 6];
 
     it('should init an array with a default empty array.', () => {
-      const { result } = renderHook(() => useArray());
+      const { result } = renderHook(() => useArray([]));
       expect(result.current.array).toHaveLength(0);
     });
 
@@ -26,9 +26,9 @@ describe('useArray testing', () => {
     it('should push an element to the array.', () => {
       const { result } = renderHook(() => useArray(initArray));
       act(() => {
-        result.current.push(1);
+        result.current.push(7);
       });
-      expect(result.current.array[result.current.array.length - 1]).toBe(1);
+      expect(result.current.array[result.current.array.length - 1]).toBe(7);
     });
 
     it('should clear the array to an empty one.', () => {
@@ -62,6 +62,14 @@ describe('useArray testing', () => {
       });
       expect(result.current.array[1]).not.toBe(2);
     });
+
+    it('should reverse the array.', () => {
+      const { result } = renderHook(() => useArray(initArray));
+      act(() => {
+        result.current.reverse();
+      });
+      expect(result.current.array[0]).toBe(6);
+    });
   });
 
   describe('Array of objects test', () => {
@@ -82,6 +90,30 @@ describe('useArray testing', () => {
         result.current.filter(n => n.age > 20);
       });
       expect(result.current.array).toHaveLength(people.length - 1);
+    });
+
+    it('should sort by age.', () => {
+      const { result } = renderHook(() => useArray(people));
+      act(() => {
+        result.current.sort((a, b) => a.age - b.age);
+      });
+      expect(result.current.array[1].age).toBe(30);
+    });
+
+    it('should sort by name.', () => {
+      const { result } = renderHook(() => useArray(people));
+      act(() => {
+        result.current.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        });
+      });
+      expect(result.current.array[0].name).toBe('bar');
     });
 
     it('should add a new person to the end of the array.', () => {
