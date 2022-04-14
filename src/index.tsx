@@ -30,10 +30,10 @@ function useArray<T>(
 
   const set = (array: T[]) => setArray(array);
 
-  const reverse = () => setArray(array => array.reverse());
+  const reverse = () => setArray(array.reverse().map(item => item));
 
   const sort = (compareFn?: ((a: T, b: T) => number) | undefined) =>
-    setArray(a => a.sort(compareFn));
+    setArray(array.sort(compareFn).map(item => item));
 
   return { array, push, filter, update, remove, clear, set, reverse, sort };
 }

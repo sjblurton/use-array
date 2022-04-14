@@ -97,7 +97,9 @@ describe('useArray testing', () => {
       act(() => {
         result.current.sort((a, b) => a.age - b.age);
       });
+      expect(result.current.array[0].age).toBe(20);
       expect(result.current.array[1].age).toBe(30);
+      expect(result.current.array[2].age).toBe(40);
     });
 
     it('should sort by name.', () => {
@@ -114,6 +116,8 @@ describe('useArray testing', () => {
         });
       });
       expect(result.current.array[0].name).toBe('bar');
+      expect(result.current.array[1].name).toBe('dee');
+      expect(result.current.array[2].name).toBe('foo');
     });
 
     it('should add a new person to the end of the array.', () => {
