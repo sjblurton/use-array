@@ -37,6 +37,14 @@
     "type": "git",
     "url": "https://github.com/sjblurton/use-array"
   },
+  "keywords": [
+    "react",
+    "hooks",
+    "custom",
+    "typescript",
+    "test",
+    "testing"
+  ],
   "name": "@sjblurton/use-array",
   "author": "Simon Blurton",
   "module": "dist/use-array.esm.js",
