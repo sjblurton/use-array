@@ -99,3 +99,9 @@ sort((a, b) => {
           return 0;
         })
 ```
+
+### **Links**
+
+GitHub: https://github.com/sjblurton/use-array
+<br/>
+NPM: https://www.npmjs.com/package/@sjblurton/use-array
